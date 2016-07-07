@@ -52,7 +52,7 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=-lPocoNet -L/usr/local/lib/ /usr/local/lib/libPocoFoundation.dylib /usr/local/lib/libPocoUtil.dylib
+LDLIBSOPTIONS=-lPocoNet -L/usr/local/lib/ /usr/local/lib/libPocoFoundation.dylib /usr/local/lib/libPocoUtil.dylib /usr/local/lib/libPocoJSON.dylib
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
@@ -61,6 +61,8 @@ LDLIBSOPTIONS=-lPocoNet -L/usr/local/lib/ /usr/local/lib/libPocoFoundation.dylib
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libpocohs.${CND_DLIB_EXT}: /usr/local/lib/libPocoFoundation.dylib
 
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libpocohs.${CND_DLIB_EXT}: /usr/local/lib/libPocoUtil.dylib
+
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libpocohs.${CND_DLIB_EXT}: /usr/local/lib/libPocoJSON.dylib
 
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libpocohs.${CND_DLIB_EXT}: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}

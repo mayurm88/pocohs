@@ -47,6 +47,7 @@
             <linkerOptionItem>-L/usr/local/lib/</linkerOptionItem>
             <linkerLibFileItem>/usr/local/lib/libPocoFoundation.dylib</linkerLibFileItem>
             <linkerLibFileItem>/usr/local/lib/libPocoUtil.dylib</linkerLibFileItem>
+            <linkerLibFileItem>/usr/local/lib/libPocoJSON.dylib</linkerLibFileItem>
           </linkerLibItems>
         </linkerTool>
       </compileType>

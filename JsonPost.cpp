@@ -6,13 +6,7 @@
  */
 
 #include "JsonPost.hpp"
-#include "Poco/URI.h"
-#include "Poco/Net/HTTPClientSession.h"
-#include "Poco/Net/HTTPRequest.h"
-#include "Poco/Net/HTTPResponse.h"
-#include "Poco/Exception.h"
-#include "Poco/StreamCopier.h"
-#include <iostream>
+
 
 using Poco::Net::HTTPClientSession;
 using Poco::URI;
@@ -21,6 +15,43 @@ using Poco::Net::HTTPMessage;
 using Poco::Exception;
 using Poco::Net::HTTPResponse;
 using Poco::StreamCopier;
+using Poco::JSON::Object;
+using Poco::JSON::Array;
+using Poco::JSON::Parser;
+using Poco::Dynamic::Var;
+
+Object::Ptr JsonPost::doGetJSON(int id){
+    std::string jsonStr = doGet(id);
+    Parser parser;
+    Var result = parser.parse(jsonStr);
+    Object::Ptr object = result.extract<Object::Ptr>();
+    return object;
+}
+
+Array::Ptr JsonPost::doGetJSON(){
+    std::string jsonStr = doGet();
+    Parser parser;
+    Var result = parser.parse(jsonStr);
+    Array::Ptr arr = result.extract<Array::Ptr>();
+    return arr;
+}
+
+Object::Ptr JsonPost::doPostJSON(std::string title, std::string body, int userID){
+    std::string jsonStr = doPost(title, body, userID);
+    Parser parser;
+    Var result = parser.parse(jsonStr);
+    Object::Ptr object = result.extract<Object::Ptr>();
+    return object;
+}
+
+
+Object::Ptr JsonPost::doUpdateJSON(int id, std::string title, std::string body, int userID){
+    std::string jsonStr = doUpdate(id, title, body, userID);
+    Parser parser;
+    Var result = parser.parse(jsonStr);
+    Object::Ptr object = result.extract<Object::Ptr>();
+    return object;
+}
 
 std::string JsonPost::doGet(int id){
     try{
