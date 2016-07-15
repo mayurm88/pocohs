@@ -1,0 +1,32 @@
+About:
+
+GET/PUT/DELETE/POST REST calls on http://jsonplaceholder.typicode.com/ implemented in a library.
+A user can make an application using this library to make the specific API calls.
+
+doGet/doGetJSON -- will return a string/Array of JSON Objects of all the Posts on jsonplaceholder
+doGet(id)/doGetJSON(id) -- will return a string/JSON object of the post with the specified id. If the post does not exists, return type will be empty string
+doPost(title,body,userID)
+doPostJSON(title,body,userID) -- will POST the post with given parameters and return a string/JSON object.
+doUpdate(id,title,body,userID)
+doUpdateJSON(id,title,body,userID) -- will PUT the post specified by id with the new parameters and return a string/JSON object.
+doDelete(id) -- will DELETE the post specified by id and return 0 for success and -1 for failure.
+
+
+Requirements:
+
+OS : MAC OS X
+Tools: 
+1. git, make, g++, poco library installation
+2. You can build and install the poco library from source from here : http://pocoproject.org/download/index.html
+3. At the time of writing this, poco-1.7.3 was used. The basic edition is good enough. Complete edition is not required for this application.
+
+Follow steps below to compile and run the app:
+
+ 1. Make sure the Poco include files are in /usr/local/include and the Poco libraries are in /usr/local/lib. If this is not the case, you will have to modify the Makefile to compile the program.
+ 2. Go to any directory you want the source code to be downloaded
+ 3. type 'git clone https://github.com/musicophilic/pocohs'
+ 4. cd pocohs
+ 5. make clobber clean
+ 6. make
+ 7. The library file will be generated : ./dist/Debug/GNU-MacOSX/libpocohs.dylib
+ 8. Use this library in your application to make the above calls.
